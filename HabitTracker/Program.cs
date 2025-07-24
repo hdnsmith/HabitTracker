@@ -13,7 +13,7 @@ namespace HabitTracker
             while (menu.MenuSelection != 5)
             {
                 menu.DisplayMenu();
-                // menu.GetMenuSelection();
+                menu.GetMenuSelection();
                 switch (menu.MenuSelection)
                 {
                     case 1:
