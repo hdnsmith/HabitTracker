@@ -7,7 +7,7 @@ namespace HabitTracker
     {
         static void Main(string[] args)
         {
-            // HabitEngine.CreateTable();
+            HabitEngine.CreateTable();
 
             var menu = new Menu();
             while (menu.MenuSelection != 5)
