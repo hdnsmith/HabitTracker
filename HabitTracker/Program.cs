@@ -10,9 +10,9 @@ namespace HabitTracker
             // HabitEngine.CreateTable();
 
             var menu = new Menu();
-            while (menu.MenuSelection != 0)
+            while (menu.MenuSelection != 5)
             {
-                // menu.DisplayMenu();
+                menu.DisplayMenu();
                 // menu.GetMenuSelection();
                 switch (menu.MenuSelection)
                 {
