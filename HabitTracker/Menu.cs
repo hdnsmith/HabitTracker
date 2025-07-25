@@ -23,5 +23,31 @@ namespace HabitTracker
         {
             MenuSelection = Helpers.GetUserInt();
         }
+
+        internal void AccessMenuSelection()
+        {
+            switch (MenuSelection)
+            {
+                case 1:
+                    // HabitEngine.LogHabit();
+                    break;
+                case 2:
+                    // HabitEngine.DeleteLog();
+                    break;
+                case 3:
+                    // HabitEngine.UpdateLog();
+                    break;
+                case 4:
+                    // HabitEngine.ViewLog();
+                    break;
+                case 5:
+                    break;
+                default:
+                    Console.Clear();
+                    Console.WriteLine("Invalid Menu Entry. Press enter to return to menu.");
+                    Console.ReadLine();
+                    break;
+            }
+        }
     }
 }
