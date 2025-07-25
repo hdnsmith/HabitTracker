@@ -14,8 +14,8 @@ namespace HabitTracker
                 command.CommandText =
                     @"CREATE TABLE IF NOT EXISTS habit (
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        date TEXT,
-                        quantity INTEGER
+                        date TEXT NOT NULL,
+                        quantity INTEGER NOT NULL
                     );";
                 command.ExecuteNonQuery();
 
