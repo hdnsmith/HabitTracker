@@ -49,6 +49,48 @@ namespace HabitTracker
             }
         }
 
+        private static void DisplayLog()
+        {
+            using (var connection = new SqliteConnection(@"Data Source=HabitTracker.db"))
+            {
+                connection.Open();
+                var log = new List<Habit>();
+
+                var command = connection.CreateCommand();
+                command.CommandText =
+                    @"
+                    SELECT *
+                    FROM habit
+                    ";
+
+                using (var reader = command.ExecuteReader())
+                {
+                    if (!reader.HasRows)
+                    {
+                        Console.WriteLine("No logged habits found.");
+                        return;
+                    }
+
+                    while (reader.Read())
+                    {
+                        log.Add(
+                            new Habit
+                            {
+                                Id = reader.GetInt32(0),
+                                Date = DateTime.ParseExact(reader.GetString(1), "yyyy-MM-dd", new CultureInfo("en-US"), DateTimeStyles.None),
+                                Quantity = reader.GetInt32(2)
+                            });
+                    }
+
+                    foreach (Habit entry in log)
+                    {
+                        Console.WriteLine($"{entry.Id}\t{entry.Date.ToString("MMMM dd, yyyy")}\t{entry.Quantity}");
+                    }
+                }
+
+            }
+        }
+
         private static string GetHabitDate()
         {
             Console.Write("Please enter date (YYYY-MM-DD): ");
