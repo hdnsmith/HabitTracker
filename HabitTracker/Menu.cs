@@ -59,7 +59,7 @@ namespace HabitTracker
             switch (MenuSelection)
             {
                 case MenuOptions.LogHabit:
-                    // HabitEngine.LogHabit();
+                    HabitEngine.LogHabit();
                     break;
                 case MenuOptions.DeleteLog:
                     // HabitEngine.DeleteLog();
