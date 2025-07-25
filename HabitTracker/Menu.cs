@@ -4,7 +4,17 @@ namespace HabitTracker
 {
     internal class Menu
     {
-        internal int MenuSelection { get; set; }
+        internal enum MenuOptions
+        {
+            LogHabit,
+            DeleteLog,
+            UpdateLog,
+            ViewLog,
+            ExitProgram,
+            InvalidOption
+        }
+
+        internal MenuOptions MenuSelection { get; set; }
 
         internal void DisplayMenu()
         {
@@ -21,28 +31,49 @@ namespace HabitTracker
 
         internal void GetMenuSelection()
         {
-            MenuSelection = Helpers.GetUserInt();
+            switch (Helpers.GetUserInt())
+            {
+                case 1:
+                    MenuSelection = MenuOptions.LogHabit;
+                    break;
+                case 2:
+                    MenuSelection = MenuOptions.DeleteLog;
+                    break;
+                case 3:
+                    MenuSelection = MenuOptions.UpdateLog;
+                    break;
+                case 4:
+                    MenuSelection = MenuOptions.ViewLog;
+                    break;
+                case 5:
+                    MenuSelection = MenuOptions.ExitProgram;
+                    break;
+                default:
+                    MenuSelection = MenuOptions.InvalidOption;
+                    break;
+            }
         }
 
         internal void AccessMenuSelection()
         {
             switch (MenuSelection)
             {
-                case 1:
+                case MenuOptions.LogHabit:
                     // HabitEngine.LogHabit();
                     break;
-                case 2:
+                case MenuOptions.DeleteLog:
                     // HabitEngine.DeleteLog();
                     break;
-                case 3:
+                case MenuOptions.UpdateLog:
                     // HabitEngine.UpdateLog();
                     break;
-                case 4:
+                case MenuOptions.ViewLog:
                     // HabitEngine.ViewLog();
                     break;
-                case 5:
+                case MenuOptions.ExitProgram:
+                    Console.WriteLine("Exiting Program...");
                     break;
-                default:
+                case MenuOptions.InvalidOption:
                     Console.Clear();
                     Console.WriteLine("Invalid Menu Entry. Press enter to return to menu.");
                     Console.ReadLine();
