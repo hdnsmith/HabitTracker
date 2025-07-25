@@ -49,6 +49,16 @@ namespace HabitTracker
             }
         }
 
+        internal static void ViewLog()
+        {
+            Console.Clear();
+            Console.WriteLine("Press enter to return to menu.");
+            Console.WriteLine("-----------------------------\n");
+            DisplayLog();
+            Console.WriteLine("\n-----------------------------");
+            Console.ReadLine();
+        }
+
         private static void DisplayLog()
         {
             using (var connection = new SqliteConnection(@"Data Source=HabitTracker.db"))

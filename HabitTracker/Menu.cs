@@ -68,7 +68,7 @@ namespace HabitTracker
                     // HabitEngine.UpdateLog();
                     break;
                 case MenuOptions.ViewLog:
-                    // HabitEngine.ViewLog();
+                    HabitEngine.ViewLog();
                     break;
                 case MenuOptions.ExitProgram:
                     Console.WriteLine("Exiting Program...");
