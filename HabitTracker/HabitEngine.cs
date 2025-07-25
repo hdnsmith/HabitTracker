@@ -77,4 +77,11 @@ namespace HabitTracker
             return quantity;
         }
     }
+
+    internal class Habit
+    {
+        internal int Id { get; set; }
+        internal DateTime Date { get; set; }
+        internal int Quantity { get; set; }
+    }
 }
