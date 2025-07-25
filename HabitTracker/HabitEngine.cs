@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Microsoft.Data.Sqlite;
+using System;
+using System.Collections.Generic;
 using System.Globalization;
-using Microsoft.Data.Sqlite;
 
 namespace HabitTracker
 {
