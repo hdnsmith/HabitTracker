@@ -16,11 +16,12 @@ namespace HabitTracker
                 var command = connection.CreateCommand();
                 command.CommandText =
                     @"
-                    CREATE TABLE IF NOT EXISTS habit (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        date TEXT NOT NULL,
-                        quantity INTEGER NOT NULL
-                    );";
+                        CREATE TABLE IF NOT EXISTS habit (
+                            id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            date TEXT NOT NULL,
+                            quantity INTEGER NOT NULL
+                            );
+                    ";
                 command.ExecuteNonQuery();
 
             }
@@ -40,8 +41,8 @@ namespace HabitTracker
                 var command = connection.CreateCommand();
                 command.CommandText =
                     @"
-                    INSERT INTO habit (date, quantity)
-                    VALUES ($date, $quantity);
+                        INSERT INTO habit (date, quantity)
+                        VALUES ($date, $quantity);
                     ";
                 command.Parameters.AddWithValue("$date", date);
                 command.Parameters.AddWithValue("$quantity", quantity);
@@ -69,8 +70,8 @@ namespace HabitTracker
                 var command = connection.CreateCommand();
                 command.CommandText =
                     @"
-                    SELECT *
-                    FROM habit
+                        SELECT *
+                        FROM habit
                     ";
 
                 using (var reader = command.ExecuteReader())
