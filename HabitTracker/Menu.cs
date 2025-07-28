@@ -2,9 +2,9 @@
 
 namespace HabitTracker
 {
-    internal class Menu
+    public class Menu
     {
-        internal enum MenuOptions
+        public enum MenuOptions
         {
             LogHabit,
             DeleteLog,
@@ -14,9 +14,16 @@ namespace HabitTracker
             InvalidOption
         }
 
-        internal MenuOptions MenuSelection { get; set; }
+        public MenuOptions MenuSelection { get; private set; }
 
-        internal void DisplayMenu()
+        public void RunMenu()
+        {
+            DisplayMenu();
+            GetMenuSelection();
+            AccessMenuSelection();
+        }
+
+        private void DisplayMenu()
         {
             Console.Clear();
             Console.WriteLine("MAIN MENU\r\n-----------------------------------" +
@@ -29,7 +36,7 @@ namespace HabitTracker
                 "\r\n-----------------------------------");
         }
 
-        internal void GetMenuSelection()
+        private void GetMenuSelection()
         {
             switch (Helpers.GetUserInt())
             {
@@ -54,7 +61,7 @@ namespace HabitTracker
             }
         }
 
-        internal void AccessMenuSelection()
+        private void AccessMenuSelection()
         {
             switch (MenuSelection)
             {
