@@ -2,9 +2,9 @@
 
 namespace HabitTracker
 {
-    internal class Helpers
+    public class Helpers
     {
-        internal static int GetUserInt()
+        public static int GetUserInt()
         {
             string? input;
             int output;
