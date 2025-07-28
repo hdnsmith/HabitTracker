@@ -5,9 +5,16 @@ using System.Globalization;
 
 namespace HabitTracker
 {
-    static internal class HabitEngine
+    public static class HabitEngine
     {
-        internal static void CreateTable()
+        private class Habit
+        {
+            internal int Id { get; set; }
+            internal DateTime Date { get; set; }
+            internal int Quantity { get; set; }
+        }
+
+        public static void CreateTable()
         {
             using (var connection = new SqliteConnection(@"Data Source=HabitTracker.db"))
             {
@@ -27,7 +34,7 @@ namespace HabitTracker
             }
         }
 
-        internal static void LogHabit()
+        public static void LogHabit()
         {
             Console.Clear();
 
@@ -50,7 +57,7 @@ namespace HabitTracker
             }
         }
 
-        internal static void ViewLog()
+        public static void ViewLog()
         {
             Console.Clear();
             Console.WriteLine("Press enter to return to menu.");
@@ -129,12 +136,5 @@ namespace HabitTracker
 
             return quantity;
         }
-    }
-
-    internal class Habit
-    {
-        internal int Id { get; set; }
-        internal DateTime Date { get; set; }
-        internal int Quantity { get; set; }
     }
 }
